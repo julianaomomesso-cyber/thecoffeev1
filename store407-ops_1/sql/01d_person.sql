@@ -1,0 +1,183 @@
+-- =====================================================================
+-- 01d_person — 68 personalizações, 101 deltas e os aliases
+-- Cole no SQL Editor do Supabase e rode. Ordem: 01a, 01b, 01c, 01d.
+-- =====================================================================
+set search_path = ops, public;
+begin;
+
+-- ---------- personalizacoes ----------
+insert into modificadores (codigo,nome,tipo,preco) values ('1EMP','Empanada Carne','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('1PE','With Lactose Free Milk','substituicao',3.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('1TBBL','Totebags Black','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('1TBWH','Totebags Cru','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('2EMP','Empanada Vegana','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('BRIBB','Brigadeiro Brulée','substituicao',5.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('BRNNU','Brigadeiro Ninho com Nutella','substituicao',5.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('BRTRD','Brigadeiro Traditional','substituicao',5.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('CHOC5','Chocolate 52% de Cacau Intenso ao Leite de Coco 40g','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('CHOC7','Chocolate 70% de Cacau Amazônico 40g','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('CHOC85','Chocolate 52% de Cacau Intenso ao Leite de Coco 8g','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('CHOC87','Chocolate 70% de Cacau Amazônico 8g','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('CKBICE','Banana Cake with Ice Cream','substituicao',0.1);
+insert into modificadores (codigo,nome,tipo,preco) values ('CKLICE','Lemon Cake with Ice Cream','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('CMX10B','Chemex: Black: 2 Dose (+180ml)','adicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('CMX10K','Chemex: Kraft: 2 Dose (+180ml)','adicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('CMX10W','Chemex White: 2 Doses (+180ml)','adicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('CROT','Croissant Tradicional','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('DOUESPAPP','More Coffee Double Iced Black (72ml)','adicao',8.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('EXPAB','Aram Black','reducao',2.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('EXPAK','Aram Kraft','reducao',2.5);
+insert into modificadores (codigo,nome,tipo,preco) values ('GRABRAAPP','With White Sprinkles','substituicao',1.5);
+insert into modificadores (codigo,nome,tipo,preco) values ('JELREDAPP','Red Fruit Jelly','adicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('LCUM1','Syrup Less Tonka (10ml) 2CIL','reducao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('LCUM2','Syrup Less Tonka (5ml)','reducao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('LECOCAAPP','Less Coco Caramel Flavor (10ml)','reducao',0.0);  -- CONFIRMAR: classificado como personalizacao pelo nome, nao pela categoria do price list
+insert into modificadores (codigo,nome,tipo,preco) values ('LECOVAAPP','Syrup Less Coco Vanilla Flavor (10ml) Cold','reducao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('LESHONAPP','Less Honey (5g)','adicao',0.5);
+insert into modificadores (codigo,nome,tipo,preco) values ('LHCOVAAPP','Syrup Less Coco Vanilla Flavor (5ml) Hot','reducao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('LTSC','With lactose free milk (Drip)','substituicao',0.0);  -- CONFIRMAR: classificado como personalizacao pelo nome, nao pela categoria do price list
+insert into modificadores (codigo,nome,tipo,preco) values ('LVG','With Plant Milk','adicao',3.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('LVGNUDAPP','With Plant Milk (Nude)','substituicao',0.0);  -- CONFIRMAR: classificado como personalizacao pelo nome, nao pela categoria do price list
+insert into modificadores (codigo,nome,tipo,preco) values ('MCOFF','Extra Double Shot: More Coffee (36ml)','adicao',4.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('MCUM1','Syrup More Tonka (20ml) 2CIL','adicao',2.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('MCUM2','Syrup More Tonka (15ml)','adicao',2.5);
+insert into modificadores (codigo,nome,tipo,preco) values ('MHCOVAAPP','Syrup More Coco Vanilla Flavor (15ml) Hot','adicao',2.5);
+insert into modificadores (codigo,nome,tipo,preco) values ('MNCF','Singles Shot: Less Coffee (18ml)','reducao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('MNCHAI','Less Chai (18ml)','substituicao',0.0);  -- CONFIRMAR: classificado como personalizacao pelo nome, nao pela categoria do price list
+insert into modificadores (codigo,nome,tipo,preco) values ('MNMAT','Less Matcha (18ml)','substituicao',0.0);  -- CONFIRMAR: classificado como personalizacao pelo nome, nao pela categoria do price list
+insert into modificadores (codigo,nome,tipo,preco) values ('MNTGAPP','More Butter','adicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('MOCOVAAPP','More Coco Caramel Flavor (20ml)','adicao',5.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('MORHONAPP','More Honey (15g)','adicao',1.5);
+insert into modificadores (codigo,nome,tipo,preco) values ('MPRB','With Coffee (Chocold Mint)','adicao',3.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('MPRBP','More (18g Coffee, 36ml Water) (Pure Black)','adicao',4.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('MSCR','Syrup More Caramel (20ml)','adicao',2.5);
+insert into modificadores (codigo,nome,tipo,preco) values ('MSCR+','Syrup More Salted Caramel (20ml)','adicao',2.5);
+insert into modificadores (codigo,nome,tipo,preco) values ('MSSU','More Sugar','adicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('MSSUD','More Sugar Demerara','adicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('MSVL','Syrup More Vanilla (15ml)','adicao',2.5);
+insert into modificadores (codigo,nome,tipo,preco) values ('MSVL+','Syrup More Vanilla (20ml)','adicao',2.5);
+insert into modificadores (codigo,nome,tipo,preco) values ('ORIHONAPP','Original Honey (10g)','adicao',1.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('OUTC','Without Milk (Chai)','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('OUTM','Without Milk (Matcha)','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('SLMT','With tonic','substituicao',1.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('SLSBG','With Tonic Zero Sugar (Black Ginger)','substituicao',1.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('SLSMT','With Tonic Zero Sugar','substituicao',1.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('SOUBREAPP','Fatia Sourdough','adicao',5.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('SYCOCAAPP','Xarope de Coco + Caramelo','adicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('TNCH','With Tonic (Chai)','substituicao',1.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('TOAPC','Toast Parmesan Cheese','substituicao',2.9);
+insert into modificadores (codigo,nome,tipo,preco) values ('TOAT','Toast Traditional','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('TRUMBRE','Transparent Umbrella','adicao',67.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('TUB240','Tumbler 240ml Black','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('TUB360','Tumbler 360ml Black','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('TUBW240','Tumbler 240ml White','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('TUBW360','Tumbler 360ml White','substituicao',0.0);
+insert into modificadores (codigo,nome,tipo,preco) values ('VGTC','With veggie milk (Drip)','substituicao',0.0);  -- CONFIRMAR: classificado como personalizacao pelo nome, nao pela categoria do price list
+insert into modificadores (codigo,nome,tipo,preco) values ('WHUMBRE','White Umbrella','adicao',75.5);
+
+-- ---------- deltas de insumo das personalizacoes ----------
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0 from modificadores m join insumos i on i.sku='EMPC' where m.codigo='1EMP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.17 from modificadores m join insumos i on i.sku='MILK0' where m.codigo='1PE';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.17 from modificadores m join insumos i on i.sku='MLKI' where m.codigo='1PE';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0 from modificadores m join insumos i on i.sku='ECOC' where m.codigo='1TBBL';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='ECOC' where m.codigo='1TBWH';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='ECOP' where m.codigo='1TBWH';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='EMPC' where m.codigo='2EMP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='EMPV' where m.codigo='2EMP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='*BRI' where m.codigo='BRIBB';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='BRIBR' where m.codigo='BRIBB';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='*BRI' where m.codigo='BRNNU';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='BRIN' where m.codigo='BRNNU';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='*BRI' where m.codigo='BRTRD';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='BRIT' where m.codigo='BRTRD';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='CHCA40' where m.codigo='CHOC5';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='CHLC40' where m.codigo='CHOC5';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0 from modificadores m join insumos i on i.sku='CHCA40' where m.codigo='CHOC7';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='CHCA08' where m.codigo='CHOC85';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='CHLC08' where m.codigo='CHOC85';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0 from modificadores m join insumos i on i.sku='CHCA08' where m.codigo='CHOC87';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='*CAKE' where m.codigo='CKBICE';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='CBB' where m.codigo='CKBICE';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='*CAKE' where m.codigo='CKLICE';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='BL' where m.codigo='CKLICE';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='CUPG' where m.codigo='CMX10B';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.01 from modificadores m join insumos i on i.sku='RCB250' where m.codigo='CMX10B';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='CUPG' where m.codigo='CMX10K';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.01 from modificadores m join insumos i on i.sku='RCK250' where m.codigo='CMX10K';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.01 from modificadores m join insumos i on i.sku='COFFEE' where m.codigo='CMX10W';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='CUPG' where m.codigo='CMX10W';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='*CROI' where m.codigo='CROT';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='CCCT' where m.codigo='CROT';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.018 from modificadores m join insumos i on i.sku='COFFEE' where m.codigo='DOUESPAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.018 from modificadores m join insumos i on i.sku='COFFEE' where m.codigo='EXPAB';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.018 from modificadores m join insumos i on i.sku='COFFEE' where m.codigo='EXPAK';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.005 from modificadores m join insumos i on i.sku='IGRA' where m.codigo='GRABRAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.005 from modificadores m join insumos i on i.sku='IGRB' where m.codigo='GRABRAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.025 from modificadores m join insumos i on i.sku='REDJELLY' where m.codigo='JELREDAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.005 from modificadores m join insumos i on i.sku='SCM' where m.codigo='LCUM1';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.005 from modificadores m join insumos i on i.sku='SCM' where m.codigo='LCUM2';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.005 from modificadores m join insumos i on i.sku='BLENDHALLOWEEN' where m.codigo='LECOCAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.0025 from modificadores m join insumos i on i.sku='COCE' where m.codigo='LECOVAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.0025 from modificadores m join insumos i on i.sku='SVV' where m.codigo='LECOVAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.005 from modificadores m join insumos i on i.sku='HON' where m.codigo='LESHONAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.0025 from modificadores m join insumos i on i.sku='COCE' where m.codigo='LHCOVAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.0025 from modificadores m join insumos i on i.sku='SVV' where m.codigo='LHCOVAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.036 from modificadores m join insumos i on i.sku='MILK0' where m.codigo='LTSC';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.036 from modificadores m join insumos i on i.sku='MLKI' where m.codigo='LTSC';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.17 from modificadores m join insumos i on i.sku='MILKV' where m.codigo='LVG';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.17 from modificadores m join insumos i on i.sku='MILKV' where m.codigo='LVGNUDAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.17 from modificadores m join insumos i on i.sku='MLKI' where m.codigo='LVGNUDAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.018 from modificadores m join insumos i on i.sku='COFFEE' where m.codigo='MCOFF';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.015 from modificadores m join insumos i on i.sku='SCM' where m.codigo='MCUM1';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.005 from modificadores m join insumos i on i.sku='SCM' where m.codigo='MCUM2';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0025 from modificadores m join insumos i on i.sku='COCE' where m.codigo='MHCOVAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0025 from modificadores m join insumos i on i.sku='SVV' where m.codigo='MHCOVAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.009 from modificadores m join insumos i on i.sku='COFFEE' where m.codigo='MNCF';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.00141 from modificadores m join insumos i on i.sku='CHAI' where m.codigo='MNCHAI';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.003 from modificadores m join insumos i on i.sku='ISUG' where m.codigo='MNCHAI';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.002 from modificadores m join insumos i on i.sku='ISUG' where m.codigo='MNMAT';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.0003 from modificadores m join insumos i on i.sku='MATCHA' where m.codigo='MNMAT';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.025 from modificadores m join insumos i on i.sku='BUTTER' where m.codigo='MNTGAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0025 from modificadores m join insumos i on i.sku='COCE' where m.codigo='MOCOVAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0025 from modificadores m join insumos i on i.sku='SVV' where m.codigo='MOCOVAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.015 from modificadores m join insumos i on i.sku='HON' where m.codigo='MORHONAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.018 from modificadores m join insumos i on i.sku='COFFEE' where m.codigo='MPRB';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.018 from modificadores m join insumos i on i.sku='COFFEE' where m.codigo='MPRBP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.01 from modificadores m join insumos i on i.sku='SVC' where m.codigo='MSCR';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.005 from modificadores m join insumos i on i.sku='SYPTED' where m.codigo='MSCR+';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.005 from modificadores m join insumos i on i.sku='SUGDMR' where m.codigo='MSSU';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.005 from modificadores m join insumos i on i.sku='SUGDMR' where m.codigo='MSSUD';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.01 from modificadores m join insumos i on i.sku='SVV' where m.codigo='MSVL';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.015 from modificadores m join insumos i on i.sku='SVV' where m.codigo='MSVL+';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.01 from modificadores m join insumos i on i.sku='HON' where m.codigo='ORIHONAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0 from modificadores m join insumos i on i.sku='MLKI' where m.codigo='OUTC';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0 from modificadores m join insumos i on i.sku='MLKI' where m.codigo='OUTM';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.17 from modificadores m join insumos i on i.sku='MLKI' where m.codigo='SLMT';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.175 from modificadores m join insumos i on i.sku='ST' where m.codigo='SLMT';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.175 from modificadores m join insumos i on i.sku='ST' where m.codigo='SLSBG';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.175 from modificadores m join insumos i on i.sku='STZS' where m.codigo='SLSBG';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.17 from modificadores m join insumos i on i.sku='MLKI' where m.codigo='SLSMT';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.175 from modificadores m join insumos i on i.sku='STZS' where m.codigo='SLSMT';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.06 from modificadores m join insumos i on i.sku='PÃOFNAT' where m.codigo='SOUBREAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.005 from modificadores m join insumos i on i.sku='COCE' where m.codigo='SYCOCAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.005 from modificadores m join insumos i on i.sku='SYPTED' where m.codigo='SYCOCAAPP';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.17 from modificadores m join insumos i on i.sku='MLKI' where m.codigo='TNCH';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.17 from modificadores m join insumos i on i.sku='ST' where m.codigo='TNCH';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='TOA' where m.codigo='TOAPC';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='TOASTPC' where m.codigo='TOAPC';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='TOA' where m.codigo='TOAT';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='TOASTPC' where m.codigo='TOAT';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='UMBRT' where m.codigo='TRUMBRE';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0 from modificadores m join insumos i on i.sku='TUMBR360' where m.codigo='TUB240';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='TUMBR360' where m.codigo='TUB360';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='TUMPR360' where m.codigo='TUB360';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.0 from modificadores m join insumos i on i.sku='TUMBR240' where m.codigo='TUBW240';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-1.0 from modificadores m join insumos i on i.sku='TUMBR240' where m.codigo='TUBW360';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='TUMPR240' where m.codigo='TUBW360';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,0.036 from modificadores m join insumos i on i.sku='MILKV' where m.codigo='VGTC';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,-0.036 from modificadores m join insumos i on i.sku='MLKI' where m.codigo='VGTC';
+insert into modificador_itens (modificador_id,insumo_id,delta_qtd) select m.id,i.id,1.0 from modificadores m join insumos i on i.sku='UMBR' where m.codigo='WHUMBRE';
+
+insert into produto_alias (produto_id,origem,nome_origem) select id,'bom',nome from produtos on conflict (origem,nome_origem) do nothing;  -- nomes repetidos na BoM ficam de fora e entram no de-para
+
+commit;
